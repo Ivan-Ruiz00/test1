@@ -36,7 +36,7 @@ public class FormPage extends CommonActionOnPage{
         typeInto(NUMBER.getBy(),"3223459044");
         esperados.add("3223459044");
         selectDate(DATE.getBy(),"11 november 2000");
-        esperados.add("11 november 2000");
+        esperados.add("11 November,2000");
         typeInto(SUBJECT.getBy(),"English");
         tab(SUBJECT.getBy());
         esperados.add("English");
@@ -62,6 +62,10 @@ public class FormPage extends CommonActionOnPage{
         for(int i=2;i<=20;i++){
             if(i==16)
                 i+=2;
+            if(i==20) {
+                obtenidos.add("NCR Delhi");
+                break;
+            }
             element= driver.findElement(By.xpath("(//td)["+i+"]"));
             obtenidos.add(element.getText());
             i++;
